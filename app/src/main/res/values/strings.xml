@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SimpleAndroidTaskManager</string>
+    <string name="settings">Settings</string>
+    <string name="add">add</string>
+    <string name="new_note">New Note</string>
+    <string name="note_name">Note\'s name</string>
+    <string name="note_text">Note\'s text</string>
+    <string name="done">Done</string>
+    <string name="noNotes">Looks like you don\'t have any notes yet. Time to create them!</string>
+</resources>
