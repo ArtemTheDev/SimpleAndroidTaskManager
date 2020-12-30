@@ -1,8 +1,6 @@
 package com.artemthedev.simpleandroidtaskmanager;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -42,14 +40,14 @@ public class notesFragment extends Fragment {
         }
 
         int notes = 0;
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
+        if (cursor.moveToLast()) {
+            while (!cursor.isBeforeFirst()) {
                 String name = cursor.getString(cursor.getColumnIndex("NAME"));
                 String content = cursor.getString(cursor.getColumnIndex("CONTENT"));
                 String date = cursor.getString(cursor.getColumnIndex("DATE"));
 
                 displayFragment(name, content, date);
-                cursor.moveToNext();
+                cursor.moveToPrevious();
                 notes++;
             }
         } else {
@@ -72,6 +70,7 @@ public class notesFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        getChildFragmentManager().getFragments().clear();
         db.close();
     }
 }

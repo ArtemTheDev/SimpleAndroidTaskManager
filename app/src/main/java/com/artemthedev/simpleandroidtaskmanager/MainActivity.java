@@ -35,10 +35,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle state) {
+        getSupportFragmentManager().beginTransaction().
+                remove(fragment).commit();
+        super.onSaveInstanceState(state);
+    }
+
     private void displayNotes() {
         fragment = new notesFragment();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.base, fragment, null)
+                .replace(R.id.base, fragment, null)
                 .addToBackStack(null)
                 .commit();
     }
