@@ -7,4 +7,32 @@
     <string name="note_text">Note\'s text</string>
     <string name="done">Done</string>
     <string name="noNotes">Looks like you don\'t have any notes yet. Time to create them!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="Notes">Notes</string>
+    <string name="db_notes_cleaned">All the notes were deleted</string>
+    <string name="change_note">Editing Note</string>
+    <string name="warning">Warning!</string>
+    <string name="erasing_notes_warning">By clicking OK, you\'re going to erase all your notes.</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="db_note_cleaned">Note cleaned</string>
+    <string name="db_unavailable">Database unavailable</string>
+    <string name="note_edited">Note Edited</string>
 </resources>

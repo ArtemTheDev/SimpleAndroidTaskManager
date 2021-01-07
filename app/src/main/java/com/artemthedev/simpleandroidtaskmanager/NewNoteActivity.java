@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.zip.Inflater;
 
 public class NewNoteActivity extends AppCompatActivity {
@@ -55,8 +56,8 @@ public class NewNoteActivity extends AppCompatActivity {
     }
 
     private void createNewNote() {
-        String name = nameInput.getText().toString(),
-                content = textInput.getText().toString();
+        String name = NotesDBHelper.validate(nameInput.getText().toString()),
+               content = NotesDBHelper.validate(textInput.getText().toString());
 
         try {
             openHelper = new NotesDBHelper(this);
@@ -65,7 +66,11 @@ public class NewNoteActivity extends AppCompatActivity {
             ContentValues noteValues = new ContentValues();
             noteValues.put("NAME", name);
             noteValues.put("CONTENT", content);
-            noteValues.put("DATE", "2020-12-30-02-20-03");
+            Calendar now = Calendar.getInstance();
+            noteValues.put("DATE", new NoteDate (
+                    now.get(Calendar.YEAR), now.get(Calendar.MONTH)+1, now.get(Calendar.DAY_OF_MONTH),
+                    now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), now.get(Calendar.SECOND)
+            ).toString());
             db.insert("NOTES", null, noteValues);
             Toast.makeText(this, "Запись сохранена!", Toast.LENGTH_SHORT).show();
             onBackPressed();

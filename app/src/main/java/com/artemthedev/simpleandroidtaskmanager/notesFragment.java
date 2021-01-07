@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ public class notesFragment extends Fragment {
     private SQLiteDatabase db;
     private Cursor cursor;
 
+    public boolean isEmpty = true;
+
     public notesFragment() {}
 
     @Override
@@ -29,7 +32,6 @@ public class notesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v = getView();
 
         try {
             openHelper = new NotesDBHelper(getActivity().getApplicationContext());
@@ -38,33 +40,12 @@ public class notesFragment extends Fragment {
         } catch (SQLiteException e) {
             Toast.makeText(getActivity().getApplicationContext(), "Database unavailable", Toast.LENGTH_SHORT).show();
         }
-
-        int notes = 0;
-        if (cursor.moveToLast()) {
-            while (!cursor.isBeforeFirst()) {
-                String name = cursor.getString(cursor.getColumnIndex("NAME"));
-                String content = cursor.getString(cursor.getColumnIndex("CONTENT"));
-                String date = cursor.getString(cursor.getColumnIndex("DATE"));
-
-                displayFragment(name, content, date);
-                cursor.moveToPrevious();
-                notes++;
-            }
-        } else {
-            getChildFragmentManager().beginTransaction()
-                    .add(R.id.base, emptyDBMessageFragment.class, null)
-                    .addToBackStack(null)
-                    .commit();
-        }
     }
 
-    private void displayFragment(String name, String content, String date) {
-
-        notePreviewFragment fragment = new notePreviewFragment(name, content, date);
-        getChildFragmentManager().beginTransaction()
-                .add(R.id.base, fragment, null)
-                .addToBackStack(null)
-                .commit();
+    @Override
+    public void onStart() {
+        super.onStart();
+        new DBLoader().doInBackground((Void) null);
     }
 
     @Override
@@ -72,5 +53,41 @@ public class notesFragment extends Fragment {
         super.onDestroy();
         getChildFragmentManager().getFragments().clear();
         db.close();
+    }
+
+    private class DBLoader extends AsyncTask<Void, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            int notes = 0;
+            if (cursor.moveToLast()) {
+                while (!cursor.isBeforeFirst()) {
+                    String name = cursor.getString(cursor.getColumnIndex("NAME"));
+                    String content = cursor.getString(cursor.getColumnIndex("CONTENT"));
+                    String date = cursor.getString(cursor.getColumnIndex("DATE"));
+                    int id = cursor.getInt(cursor.getColumnIndex("_id"));
+
+                    displayFragment(name, content, date, id);
+                    cursor.moveToPrevious();
+                    notes++;
+                    isEmpty = false;
+                }
+            } else {
+                getChildFragmentManager().beginTransaction()
+                        .add(R.id.base, emptyDBMessageFragment.class, null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+            return null;
+        }
+    }
+
+    private void displayFragment(String name, String content, String date, int id) {
+
+        notePreviewFragment fragment = new notePreviewFragment(name, content, date, id);
+        getChildFragmentManager().beginTransaction()
+                .add(R.id.base, fragment, null)
+                .addToBackStack(null)
+                .commit();
     }
 }

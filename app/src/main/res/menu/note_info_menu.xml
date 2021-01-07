@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_editButton"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/edit"
+        android:onClick="editNote"/>
+
+    <item
+        android:id="@+id/menu_deleteButton"
+        android:title="@string/delete"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/delete"
+        android:onClick="deleteNote"/>
+
+</menu>

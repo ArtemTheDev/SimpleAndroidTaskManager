@@ -9,9 +9,10 @@
         android:onClick="add"/>
     <item
         android:id="@+id/menu_settings"
-        android:title="@string/settings"/>
+        android:title="@string/settings"
+        android:onClick="toSettings"/>
     <item
-        android:id="@+id/clear"
-        android:onClick="clearDB"
-        android:title="clear"/>
+        android:id="@+id/erase_notes"
+        android:title="@string/settings"
+        android:onClick="clearNotes"/>
 </menu>
