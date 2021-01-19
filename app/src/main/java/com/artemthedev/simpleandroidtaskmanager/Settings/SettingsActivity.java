@@ -1,18 +1,10 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.Settings;
 
-import android.content.DialogInterface;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
+
+import com.artemthedev.simpleandroidtaskmanager.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

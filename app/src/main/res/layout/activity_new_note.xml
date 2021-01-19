@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:orientation="vertical"
-    tools:context=".NewNoteActivity">
+    tools:context=".Notes.NewNoteActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

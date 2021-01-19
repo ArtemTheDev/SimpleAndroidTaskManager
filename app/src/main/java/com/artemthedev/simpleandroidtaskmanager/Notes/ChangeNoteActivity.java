@@ -1,8 +1,7 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.Notes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -14,7 +13,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import com.artemthedev.simpleandroidtaskmanager.DB.NotesDBHelper;
+import com.artemthedev.simpleandroidtaskmanager.R;
 
 public class ChangeNoteActivity extends AppCompatActivity {
 

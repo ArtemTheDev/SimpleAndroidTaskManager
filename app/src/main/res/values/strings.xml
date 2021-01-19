@@ -29,10 +29,11 @@
     <string name="db_notes_cleaned">All the notes were deleted</string>
     <string name="change_note">Editing Note</string>
     <string name="warning">Warning!</string>
-    <string name="erasing_notes_warning">By clicking OK, you\'re going to erase all your notes.</string>
+    <string name="erasing_all_notes_warning">By clicking OK, you\'re going to erase all your notes.</string>
+    <string name="erasing_one_note_warning">By clicking OK, you\'re going to erase this note.</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
-    <string name="db_note_cleaned">Note cleaned</string>
+    <string name="db_note_cleaned">Note deleted</string>
     <string name="db_unavailable">Database unavailable</string>
     <string name="note_edited">Note Edited</string>
 </resources>

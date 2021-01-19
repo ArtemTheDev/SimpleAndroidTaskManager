@@ -1,4 +1,4 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.Notes;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.artemthedev.simpleandroidtaskmanager.DB.NotesDBHelper;
+import com.artemthedev.simpleandroidtaskmanager.R;
 
 public class NoteInfoActivity extends AppCompatActivity {
 
@@ -96,7 +99,7 @@ public class NoteInfoActivity extends AppCompatActivity {
 
     public void deleteNote(MenuItem item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.erasing_notes_warning)
+        builder.setMessage(R.string.erasing_one_note_warning)
                 .setTitle(R.string.warning);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             String note_id = id;

@@ -1,5 +1,7 @@
 package com.artemthedev.simpleandroidtaskmanager;
 
+import com.artemthedev.simpleandroidtaskmanager.DB.NotesDBHelper;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

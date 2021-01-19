@@ -1,6 +1,5 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.Notes;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -14,8 +13,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.artemthedev.simpleandroidtaskmanager.DB.NoteDate;
+import com.artemthedev.simpleandroidtaskmanager.DB.NotesDBHelper;
+import com.artemthedev.simpleandroidtaskmanager.R;
+
 import java.util.Calendar;
-import java.util.zip.Inflater;
 
 public class NewNoteActivity extends AppCompatActivity {
 
@@ -67,7 +69,7 @@ public class NewNoteActivity extends AppCompatActivity {
             noteValues.put("NAME", name);
             noteValues.put("CONTENT", content);
             Calendar now = Calendar.getInstance();
-            noteValues.put("DATE", new NoteDate (
+            noteValues.put("DATE", new NoteDate(
                     now.get(Calendar.YEAR), now.get(Calendar.MONTH)+1, now.get(Calendar.DAY_OF_MONTH),
                     now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), now.get(Calendar.SECOND)
             ).toString());

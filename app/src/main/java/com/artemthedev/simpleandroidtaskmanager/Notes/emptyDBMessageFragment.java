@@ -1,4 +1,4 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.Notes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.artemthedev.simpleandroidtaskmanager.R;
 
 public class emptyDBMessageFragment extends Fragment {
     @Override

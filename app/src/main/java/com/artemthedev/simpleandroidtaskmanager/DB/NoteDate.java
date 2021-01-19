@@ -1,4 +1,4 @@
-package com.artemthedev.simpleandroidtaskmanager;
+package com.artemthedev.simpleandroidtaskmanager.DB;
 
 public class NoteDate {
     public int year, month, day, hours, min, sec;

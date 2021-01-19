@@ -13,6 +13,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.artemthedev.simpleandroidtaskmanager.DB.NotesDBHelper;
+import com.artemthedev.simpleandroidtaskmanager.Notes.NewNoteActivity;
+import com.artemthedev.simpleandroidtaskmanager.Notes.notesFragment;
+import com.artemthedev.simpleandroidtaskmanager.Settings.SettingsActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private SQLiteOpenHelper openHelper;
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
     @Override
@@ -49,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         fragment = new notesFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.base, fragment, null)
-                .addToBackStack(null)
                 .commit();
     }
 
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearNotes(MenuItem item) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.erasing_notes_warning)
+        builder.setMessage(R.string.erasing_all_notes_warning)
                 .setTitle(R.string.warning);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -85,9 +91,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        super.onBackPressed();
+    private void changeTitle(String title) {
+        try {
+            getActionBar().setTitle(title);
+        } catch (Exception e) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 }

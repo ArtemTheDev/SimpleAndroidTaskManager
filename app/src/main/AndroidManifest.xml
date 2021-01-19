@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChangeNoteActivity"></activity>
-        <activity android:name=".NoteInfoActivity" />
+        <activity android:name=".Notes.ChangeNoteActivity"></activity>
+        <activity android:name=".Notes.NoteInfoActivity" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Settings.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".NewNoteActivity" />
+        <activity android:name=".Notes.NewNoteActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

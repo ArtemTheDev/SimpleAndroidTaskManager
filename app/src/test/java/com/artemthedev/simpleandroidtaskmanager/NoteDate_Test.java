@@ -1,5 +1,7 @@
 package com.artemthedev.simpleandroidtaskmanager;
 
+import com.artemthedev.simpleandroidtaskmanager.DB.NoteDate;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
